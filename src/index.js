@@ -8,6 +8,7 @@ import { HydrocarbonService, ProgramConfig } from "aldehyde";
 import ProgramConfigJson from "../public/programConfig.json";
 import Welcome from "./components/welcome";
 import SaleOrderConstant from "./tmpl/sale-order-constant";
+import FinaneRechargeConstant from "./tmpl/finance-recharge-constant";
 
 loadableReady(async () => {
   const root = createRoot(document.getElementById("root"));
@@ -15,6 +16,8 @@ loadableReady(async () => {
  // ProgramConfig.setCustomPage(ProgramConfig.programCode(), Welcome);
   //ProgramConfig.setCustomPage("/laneLoad", LaneLoad);
   ProgramConfig.setAppDtmplConfigFunc(SaleOrderConstant.addDTmpl.sourceId, SaleOrderConstant.completeDtmplConfig);
-
+  ProgramConfig.setAppDtmplConfigFunc(SaleOrderConstant.addDTmpl_supple.sourceId, SaleOrderConstant.completeDtmplConfig);
+  ProgramConfig.setAppDtmplConfigFunc(SaleOrderConstant.addDTmpl_retail.sourceId, SaleOrderConstant.completeDtmplConfig);
+  ProgramConfig.setAppDtmplConfigFunc(FinaneRechargeConstant.addDTmpl.sourceId, FinaneRechargeConstant.completeDtmplConfig);
   root.render(<HydrocarbonRouter />);
 });
