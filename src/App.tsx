@@ -21,6 +21,7 @@ const Config = (props) => {
   return (
     <ConfigProvider
       locale={antdLangMp[getLocale()]}
+      componentSize={"small"}
       theme={{
         token: {
           // colorPrimary: "#00b96b",

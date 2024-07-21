@@ -1,7 +1,7 @@
 import React from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import loadable from "@loadable/component";
-import { Image, Spin, Typography } from "antd";
+import { Image, Spin, Typography,Card } from "antd";
 import {
   ProgramConfig,
   MainPage,
@@ -14,12 +14,23 @@ import {
   HCCustomPageRouter,
   ContextSetter,
 } from "aldehyde";
-import Logo from "./../public/enhe-logo.png";
+import Logo from "../src/style/gcklogo.png";
+import img1 from "../src/style/gck-picture1.png";
+
 const { Text } = Typography;
 const Loading = <Spin tip="Loading..."></Spin>;
 const App = loadable(() => import("./App"), { fallback: Loading });
 
+const { Meta } = Card;
+
 export default class HydrocarbonRouter extends React.Component {
+
+  loginTheme=<div style={{display: 'flex', justifyContent: 'right', }}>
+    <Card  style={{ width:700}} cover={<Image src={img1} preview={false} ></Image>} >
+    <Meta title="GCK par Actions Simplifiée"  /></Card></div>
+
+  routerLogin =<RouterLogin  theme={this.loginTheme} themePosition={'left'} />
+
   render() {
     let home = ProgramConfig.getCustomPage(ProgramConfig.programCode()) ? (
       React.createElement(
@@ -32,15 +43,17 @@ export default class HydrocarbonRouter extends React.Component {
       <HashRouter>
         <App>
           <Routes>
-            <Route path="login" element={<RouterLogin />} />
-            <Route path="login/:programCode" element={<RouterLogin />} />
+            <Route path="login" element={this.routerLogin} />
+            <Route path="login/:programCode" element={this.routerLogin} />
             {/* <Route path="/page/:sourceId/laneLoad" element={<LaneLoad />} /> */}
             <Route path="context-setter" element={<ContextSetter />} />
             <Route
               path="*"
               element={
                 <MainPage
-                  // sideBarLogo={Logo}
+                    leftHeader={ <Image src={Logo} preview={false}  />}
+                    leftCollapsedHeader={<h1>GCK</h1>}
+                  sideBarLogo={Logo}
                   footer={"Enterprise Applications ©2022 Created by 恩赫科技"}
                 >
                   <Routes>

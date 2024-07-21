@@ -63,17 +63,17 @@ SanhuPurchaseOrderConstant.completeDtmplConfig = (dtmplConfig:DtmplConfig, dtmpl
         let productCode = TmplConfigAnalysis.getFieldValueCodeOfMstrucId(dtmplConfig, fieldMap, SanhuPurchaseOrderConstant.addDtmpl_product.key, "");
         for (let field of dtmplConfig.groups[0].fields) {
             if (SanhuPurchaseOrderConstant.addDtmpl_product.key == field.mstrucId){
-                if(""!=acount){
-                    field.baseCriteria ={"c_376771616585850882":acount}
-                    field.disabled=false;
-                }else{
-                    field.baseCriteria={}
-                    field.disabled=true;
-                }
-                field.shouldUpdate=true;
-                if(changedValues && changedValues.hasOwnProperty(accountFieldId)){
-                    formInstance.setFieldValue(productFieldId,null);
-                }
+                // if(""!=acount){
+                //     field.baseCriteria ={"c_376771616585850882":acount}
+                //     field.disabled=false;
+                // }else{
+                //     field.baseCriteria={}
+                //     field.disabled=true;
+                // }
+                // field.shouldUpdate=true;
+                // if(changedValues && changedValues.hasOwnProperty(accountFieldId)){
+                //     formInstance.setFieldValue(productFieldId,null);
+                // }
             }else if(SanhuPurchaseOrderConstant.addDtmpl_weight.key == field.mstrucId){
                 let packagesFieldId=TmplConfigAnalysis.getFieldId(dtmplConfig,SanhuPurchaseOrderConstant.addDtmpl_weight.key)
                 let product=TmplDataSource.getCache(productCode);

@@ -119,7 +119,8 @@ SaleOrderConstant.completeDtmplConfig = (dtmplConfig:DtmplConfig, dtmplData:Dtmp
         let sanhuFieldId=TmplConfigAnalysis.getFieldId(dtmplConfig,SaleOrderConstant.addDtmpl_sanhu.key)
         let driverFieldId=TmplConfigAnalysis.getFieldId(dtmplConfig,SaleOrderConstant.addDtmpl_driver.key)
         let sanhu = TmplConfigAnalysis.getFieldValueOfMstrucId(dtmplConfig, fieldMap, SaleOrderConstant.addDtmpl_sanhu.key, "");
-        let acount = TmplConfigAnalysis.getFieldValueOfMstrucId(dtmplConfig, fieldMap, SaleOrderConstant.addDTmpl_account.key, "");
+        let acount_j = TmplConfigAnalysis.getFieldValueOfMstrucId(dtmplConfig, fieldMap, SaleOrderConstant.addDTmpl_account.key, "");
+        let acount=acount_j;
         let acountCode = TmplConfigAnalysis.getFieldValueCodeOfMstrucId(dtmplConfig, fieldMap, SaleOrderConstant.addDTmpl_account.key, "");
         if(""==acount){
             acount = TmplConfigAnalysis.getFieldValueOfMstrucId(dtmplConfig, fieldMap, SaleOrderConstant.addDTmpl_account_s.key, "");
@@ -149,12 +150,14 @@ SaleOrderConstant.completeDtmplConfig = (dtmplConfig:DtmplConfig, dtmplData:Dtmp
                     formInstance.setFieldValue(carFieldId,null);
                 }
             }else if (SaleOrderConstant.addDtmpl_product.key == field.mstrucId){
-                if(""!=acount){
-                    field.baseCriteria ={"c_376771616585850882":acount}
+                if(""!=acount_j){
+                    field.baseCriteria ={"c_376771616585850882":acount_j}
                     field.disabled=false;
-                }else{
+                }else if("" != acount ){
                     field.baseCriteria={}
-
+                    field.disabled=false;
+                }else {
+                    field.baseCriteria={}
                     field.disabled=true;
                 }
                 field.shouldUpdate=true;
@@ -162,7 +165,6 @@ SaleOrderConstant.completeDtmplConfig = (dtmplConfig:DtmplConfig, dtmplData:Dtmp
                     formInstance.setFieldValue(productFieldId,null);
                 }
             }else if (SaleOrderConstant.addDtmpl_driver.key == field.mstrucId){
-
                 if(""!=acount){
                     field.baseCriteria ={"c_374682600327651330":acount}
                     field.disabled=false;
@@ -330,18 +332,24 @@ SaleOrderConstant.completeDtmplConfig_supple = (dtmplConfig:DtmplConfig, dtmplDa
                     formInstance.setFieldValue(carFieldId,null);
                 }
             }else if (SaleOrderConstant.addDtmpl_product.key == field.mstrucId){
-                if(""!=acount){
-                    field.baseCriteria ={"c_376771616585850882":acount}
-                    field.disabled=false;
-                }else{
-                    field.baseCriteria={}
+                if( "否" == sanhu ){
+                    if(""!=acount){
+                        field.baseCriteria ={"c_376771616585850882":acount}
+                        field.disabled=false;
+                    }else{
+                        field.baseCriteria={}
 
-                    field.disabled=true;
+                        field.disabled=true;
+                    }
+                    if(changedValues && changedValues.hasOwnProperty(accountFieldId)){
+                        formInstance.setFieldValue(productFieldId,null);
+                    }
+                }else{
+                    field.baseCriteria ={}
+                    field.disabled=false;
                 }
                 field.shouldUpdate=true;
-                if(changedValues && changedValues.hasOwnProperty(accountFieldId)){
-                    formInstance.setFieldValue(productFieldId,null);
-                }
+
             }else if (SaleOrderConstant.addDtmpl_driver.key == field.mstrucId){
 
                 if(""!=acount){
