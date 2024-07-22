@@ -42,6 +42,7 @@ FinaneRechargeConstant.ltmpl_acount_type = {
  */
 FinaneRechargeConstant.completeDtmplConfig = (dtmplConfig:DtmplConfig, dtmplData:DtmplData) => {
 
+
     function  setConfig(fieldMap:object,changedValues,formInstance?)
     {
         let accountFieldId=TmplConfigAnalysis.getFieldId(dtmplConfig,FinaneRechargeConstant.addDTmpl_account.key)
