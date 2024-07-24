@@ -39,9 +39,21 @@ SanhuPurchaseOrderConstant.addDtmpl_packages = {
     name: '包数',
     type: 'field',
 }
+
+SanhuPurchaseOrderConstant.addDtmpl_price = {
+    key: '7664a2ebeb37fef04519c6b7ee4b3073',
+    name: '税后单价',
+    type: 'field',
+}
 SanhuPurchaseOrderConstant.ltmpl_product_type = {
     sourceId:"374554011154292739",
     name: '产品类型',
+    type: 'field',
+}
+
+SanhuPurchaseOrderConstant.ltmpl_product_price = {
+    sourceId:"379726017214586880",
+    name: '产品-挂牌价',
     type: 'field',
 }
 
@@ -110,6 +122,14 @@ SanhuPurchaseOrderConstant.completeDtmplConfig = (dtmplConfig:DtmplConfig, dtmpl
                     field.disabled=true;
                     field.required=false;
                 }
+                field.shouldUpdate=true;
+            }else if(SanhuPurchaseOrderConstant.addDtmpl_price.key == field.mstrucId){
+                let product=TmplDataSource.getCache(productCode);
+                if(product && productCode!=field['preProductCode']){
+                    let priceFieldId=TmplConfigAnalysis.getFieldId(dtmplConfig,SanhuPurchaseOrderConstant.addDtmpl_price.key)
+                    formInstance.setFieldValue(priceFieldId,product.fieldMap[SanhuPurchaseOrderConstant.ltmpl_product_price.sourceId]);
+                }
+                field['preProductCode']=productCode;
                 field.shouldUpdate=true;
             }
         }
