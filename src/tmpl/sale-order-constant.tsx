@@ -30,7 +30,7 @@ SaleOrderConstant.addDTmpl_retail = {
 
 
 SaleOrderConstant.addDTmpl_account = {
-    key: 'cf24e46b5fc414312a7934d3fe2eecdf',
+    key: 'd36df1a16fa982461d4a482dbd14ec74',
     name: '账户名',
     type: 'rfield',
 }

@@ -130,6 +130,7 @@ SanhuPurchaseOrderConstant.completeDtmplConfig = (dtmplConfig:DtmplConfig, dtmpl
                     formInstance.setFieldValue(priceFieldId,product.fieldMap[SanhuPurchaseOrderConstant.ltmpl_product_price.sourceId]);
                 }
                 field['preProductCode']=productCode;
+                field.disabled=true;
                 field.shouldUpdate=true;
             }
         }
