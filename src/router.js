@@ -16,6 +16,7 @@ import {
 } from "aldehyde";
 import Logo from "../src/style/gcklogo.png";
 import img1 from "../src/style/gck-picture1.png";
+import img3 from "../src/style/gck-picture3.jpg";
 
 const { Text } = Typography;
 const Loading = <Spin tip="Loading..."></Spin>;
@@ -29,7 +30,11 @@ export default class HydrocarbonRouter extends React.Component {
     <Card  style={{ width:700}} cover={<Image src={img1} preview={false} ></Image>} >
     <Meta title="GCK par Actions Simplifiée"  /></Card></div>
 
-  routerLogin =<RouterLogin  theme={this.loginTheme} themePosition={'left'} />
+  routerLogin =<RouterLogin  theme={this.loginTheme} centerStyle={{
+         background: `url(${img3})`,
+         backgroundRepeat: "no-repeat",
+        backgroundSize: "100% 100%",
+     }} themePosition={'center'} />
 
   render() {
     let home = ProgramConfig.getCustomPage(ProgramConfig.programCode()) ? (

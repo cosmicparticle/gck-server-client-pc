@@ -11,7 +11,7 @@ export default SanhuPurchaseOrderConstant;
 
 SanhuPurchaseOrderConstant.addDTmpl = {
     key: '376736088616378380',
-    name: '采购订单添加页面',
+    name: '散户开单添加页面',
     sourceId: '376736088616378380',
     type: 'dtmpl',
 }
@@ -45,6 +45,11 @@ SanhuPurchaseOrderConstant.addDtmpl_price = {
     name: '税后单价',
     type: 'field',
 }
+SanhuPurchaseOrderConstant.addDtmpl_tax_rate = {
+    key: '3dd726fef9ddf0e4bc2a3c8bd1a79f2d',
+    name: '税率',
+    type: 'field',
+}
 SanhuPurchaseOrderConstant.ltmpl_product_type = {
     sourceId:"374554011154292739",
     name: '产品类型',
@@ -54,6 +59,12 @@ SanhuPurchaseOrderConstant.ltmpl_product_type = {
 SanhuPurchaseOrderConstant.ltmpl_product_price = {
     sourceId:"379726017214586880",
     name: '产品-挂牌价',
+    type: 'field',
+}
+
+SanhuPurchaseOrderConstant.ltmpl_product_tax_rate = {
+    sourceId:"381036864855646211",
+    name: '产品-税率',
     type: 'field',
 }
 
@@ -130,6 +141,15 @@ SanhuPurchaseOrderConstant.completeDtmplConfig = (dtmplConfig:DtmplConfig, dtmpl
                     formInstance.setFieldValue(priceFieldId,product.fieldMap[SanhuPurchaseOrderConstant.ltmpl_product_price.sourceId]);
                 }
                 field['preProductCode']=productCode;
+                field.disabled=true;
+                field.shouldUpdate=true;
+            }else if(SanhuPurchaseOrderConstant.addDtmpl_tax_rate.key == field.mstrucId){
+                let product=TmplDataSource.getCache(productCode);
+                let priceFieldId=TmplConfigAnalysis.getFieldId(dtmplConfig,SanhuPurchaseOrderConstant.addDtmpl_tax_rate.key)
+                if(product){
+                    formInstance.setFieldValue(priceFieldId,product.fieldMap[SanhuPurchaseOrderConstant.ltmpl_product_tax_rate.sourceId]);
+                }
+
                 field.disabled=true;
                 field.shouldUpdate=true;
             }

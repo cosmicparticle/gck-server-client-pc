@@ -60,13 +60,17 @@ DrawBillConstant.completeDtmplConfig = (dtmplConfig:DtmplConfig, dtmplData:Dtmpl
         if(""!=acount){
             if(dtmplConfig.groups[1]){
                 dtmplConfig.groups[1].defaultCriteriaValue={}
-                debugger
-                dtmplConfig.groups[1].defaultCriteriaValue['c_380881146521362434']=acountName;
+
+
                 let acountObj=TmplDataSource.getCache(acountCode);
                 if(acountObj && acountObj.fieldMap[DrawBillConstant.ltmpl_acount_type.sourceId]=="散户"){
                     dtmplConfig.groups[1].defaultCriteriaValue['c_374198542481006594']="是";
+                    dtmplConfig.groups[1].defaultCriteriaValue['c_380881146521362434']=null;
+                    dtmplConfig.groups[1].defaultCriteriaValue['c_380881223830773762']=acountName;
                 }else{
                     dtmplConfig.groups[1].defaultCriteriaValue['c_374198542481006594']="否";
+                    dtmplConfig.groups[1].defaultCriteriaValue['c_380881146521362434']=acountName;
+                    dtmplConfig.groups[1].defaultCriteriaValue['c_380881223830773762']=null;
                 }
             }
         }

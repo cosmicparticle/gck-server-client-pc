@@ -1,7 +1,7 @@
 {
-  "hydrocarbonServer":"http://localhost:9109",
+  "hydrocarbonServer1":"http://localhost:9109",
   "hydrocarbonServer1":"http://192.168.0.107:8383/hydrogen",
-  "hydrocarbonServer1":"http://192.168.1.111:8383/hydrogen",
+  "hydrocarbonServer":"http://192.168.1.122:8383/hydrogen",
   "programName_NavLeft":"gck一卡通服务端",
   "programName":"gck一卡通服务端",
   "programName_sub":"CARBON",

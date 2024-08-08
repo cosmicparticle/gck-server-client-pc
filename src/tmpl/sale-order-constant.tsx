@@ -35,7 +35,7 @@ SaleOrderConstant.addDTmpl_account = {
     type: 'rfield',
 }
 SaleOrderConstant.addDTmpl_account_s = {
-    key: '45c48391d355dcff4c18a0a6373171d8',
+    key: 'afd699a264a9878ca96683dd93a6ada9',
     name: '账户名-散户',
     type: 'rfield',
 }
@@ -133,6 +133,7 @@ SaleOrderConstant.completeDtmplConfig = (dtmplConfig:DtmplConfig, dtmplData:Dtmp
              if (SaleOrderConstant.addDtmpl_car.key == field.mstrucId){
                 if(""!=acount){
                     field.baseCriteria ={"c_374288489833603074":acount}
+                    field.defaultDtmplData={"fieldMap":{ '382180552369545219':acount }}
                     field.disabled=false;
                     field.required=true;
                 }else{
@@ -167,6 +168,7 @@ SaleOrderConstant.completeDtmplConfig = (dtmplConfig:DtmplConfig, dtmplData:Dtmp
             }else if (SaleOrderConstant.addDtmpl_driver.key == field.mstrucId){
                 if(""!=acount){
                     field.baseCriteria ={"c_374682600327651330":acount}
+
                     field.disabled=false;
                 }else{
                     field.baseCriteria={}
