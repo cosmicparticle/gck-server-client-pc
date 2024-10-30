@@ -13,6 +13,7 @@ import PurchaseOrderConstant from "./tmpl/purchase-order-constant";
 import SanhuPurchaseOrderConstant from "./tmpl/sanhu-purchase-order-constant";
 import SanhuOrderConstant from "./tmpl/sanhu-order-constant";
 import DrawBillConstant from "./tmpl/draw-bill-constant";
+import ProcurementDeliveryConstant from "./tmpl/procurement-delivery-constant";
 
 loadableReady(async () => {
   const root = createRoot(document.getElementById("root"));
@@ -27,5 +28,7 @@ loadableReady(async () => {
   ProgramConfig.setAppDtmplConfigFunc(SanhuPurchaseOrderConstant.addDTmpl.sourceId, SanhuPurchaseOrderConstant.completeDtmplConfig);
   ProgramConfig.setAppDtmplConfigFunc(DrawBillConstant.addDTmpl.sourceId, DrawBillConstant.completeDtmplConfig);
   ProgramConfig.setAppDtmplConfigFunc(SanhuOrderConstant.addATmpl.sourceId, SanhuOrderConstant.completeAtmplConfig);
+
+  ProgramConfig.setAppCtmplConfigFunc(ProcurementDeliveryConstant.Ltmpl.sourceId, ProcurementDeliveryConstant.completeCtmplConfig);
   root.render(<HydrocarbonRouter />);
 });

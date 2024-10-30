@@ -1,9 +1,6 @@
 
-import {HydrocarbonService,TmplConfigAnalysis,TmplDataSource} from "aldehyde";
-import {message} from "antd";
+
 import {DtmplConfig, DtmplData} from  "aldehyde/lib/tmpl/interface";
-import SaleOrderConstant from "./sale-order-constant";
-import {BigNumber} from 'bignumber.js'
 
 function CarManageConstant() {
 

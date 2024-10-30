@@ -315,20 +315,21 @@ SaleOrderConstant.completeDtmplConfig_supple = (dtmplConfig:DtmplConfig, dtmplDa
                 field.shouldUpdate=true;
             }else if (SaleOrderConstant.addDtmpl_car.key == field.mstrucId){
 
-                if(""!=acount){
-                    field.baseCriteria ={"c_374288489833603074":acount}
-                    field.disabled=false;
-                    field.required=true;
-                }else{
-                    field.baseCriteria={}
-                    field.required=false;
-                    field.disabled=true;
-                }
-                let receiptype=TmplConfigAnalysis.getFieldValueOfMstrucId(dtmplConfig, fieldMap, SaleOrderConstant.addDtmpl_receiptype.key, "");
-                if(receiptype=="配送"){
-                    field.disabled=true;
-                    field.required=false;
-                }
+                // if(""!=acount){
+                //     field.baseCriteria ={"c_374288489833603074":acount}
+                //     field.disabled=false;
+                //     field.required=true;
+                // }else{
+                //     field.baseCriteria={}
+                //     field.required=false;
+                //     field.disabled=true;
+                // }
+                // let receiptype=TmplConfigAnalysis.getFieldValueOfMstrucId(dtmplConfig, fieldMap, SaleOrderConstant.addDtmpl_receiptype.key, "");
+                // if(receiptype=="配送"){
+                //     field.disabled=true;
+                //     field.required=false;
+                // }
+                field.required=true;
                 field.shouldUpdate=true;
                 if(changedValues && changedValues.hasOwnProperty(accountFieldId)){
                     formInstance.setFieldValue(carFieldId,null);
