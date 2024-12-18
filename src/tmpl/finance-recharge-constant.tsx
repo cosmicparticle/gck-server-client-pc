@@ -11,8 +11,15 @@ export default FinaneRechargeConstant;
 
 FinaneRechargeConstant.addDTmpl = {
     key: '367384158106591257',
-    name: '充值管理添加',
+    name: '充值管理添加-经销商',
     sourceId: '367384158106591257',
+    type: 'dtmpl',
+}
+
+FinaneRechargeConstant.addDTmpl_retail = {
+    key: '407024687614042114',
+    name: '充值管理添加-散户',
+    sourceId: '407024687614042114',
     type: 'dtmpl',
 }
 
@@ -117,7 +124,7 @@ FinaneRechargeConstant.completeDtmplConfig = (dtmplConfig:DtmplConfig, dtmplData
 
                 field.shouldUpdate=true;
             }else if(FinaneRechargeConstant.addDtmpl_currency.key == field.mstrucId){
-
+                field.disabled = true;
                 let bankObj=TmplDataSource.getCache(bankCode);
                 let currencyFieldId=TmplConfigAnalysis.getFieldId(dtmplConfig,FinaneRechargeConstant.addDtmpl_currency.key)
                 if(bankObj && bankCode != field['preBankCode']){
@@ -147,7 +154,6 @@ FinaneRechargeConstant.completeDtmplConfig = (dtmplConfig:DtmplConfig, dtmplData
     dtmplConfig.onValuesChange=(changedValues,allValues,formInstance)=>{
         // let mstrucGroupId2FieldId = HydrogenConstant.getFieldId(dtmplConfig, CriteriaConstant.criteriaMstrucGroupId2_mstruc.key);
         // let dataSourceFieldId = HydrogenConstant.getFieldId(dtmplConfig, CriteriaConstant.criteriaPointMstrucId_mstruc.key);
-        debugger;
         setConfig(allValues.fieldMap,changedValues,formInstance);
         // if(changedValues[mstrucGroupId2FieldId] && dataSourceFieldId){//修改了，把数据源的值置空
         //     formInstance.setFieldValue(dataSourceFieldId,[]);

@@ -14,6 +14,7 @@ import SanhuPurchaseOrderConstant from "./tmpl/sanhu-purchase-order-constant";
 import SanhuOrderConstant from "./tmpl/sanhu-order-constant";
 import DrawBillConstant from "./tmpl/draw-bill-constant";
 import ProcurementDeliveryConstant from "./tmpl/procurement-delivery-constant";
+import SaleOrderInputConstant from "./tmpl/sales-order-input-constant";
 
 loadableReady(async () => {
   const root = createRoot(document.getElementById("root"));
@@ -24,11 +25,13 @@ loadableReady(async () => {
   ProgramConfig.setAppDtmplConfigFunc(SaleOrderConstant.addDTmpl_supple.sourceId, SaleOrderConstant.completeDtmplConfig_supple);
   ProgramConfig.setAppDtmplConfigFunc(SaleOrderConstant.addDTmpl_retail.sourceId, SaleOrderConstant.completeDtmplConfig);
   ProgramConfig.setAppDtmplConfigFunc(FinaneRechargeConstant.addDTmpl.sourceId, FinaneRechargeConstant.completeDtmplConfig);
+  ProgramConfig.setAppDtmplConfigFunc(FinaneRechargeConstant.addDTmpl_retail.sourceId, FinaneRechargeConstant.completeDtmplConfig);
   ProgramConfig.setAppDtmplConfigFunc(PurchaseOrderConstant.addDTmpl.sourceId, PurchaseOrderConstant.completeDtmplConfig);
   ProgramConfig.setAppDtmplConfigFunc(SanhuPurchaseOrderConstant.addDTmpl.sourceId, SanhuPurchaseOrderConstant.completeDtmplConfig);
   ProgramConfig.setAppDtmplConfigFunc(DrawBillConstant.addDTmpl.sourceId, DrawBillConstant.completeDtmplConfig);
   ProgramConfig.setAppDtmplConfigFunc(SanhuOrderConstant.addATmpl.sourceId, SanhuOrderConstant.completeAtmplConfig);
 
   ProgramConfig.setAppCtmplConfigFunc(ProcurementDeliveryConstant.Ltmpl.sourceId, ProcurementDeliveryConstant.completeCtmplConfig);
+  ProgramConfig.setAppDtmplConfigFunc(SaleOrderInputConstant.addDTmpl.sourceId, SaleOrderInputConstant.completeDtmplConfig);
   root.render(<HydrocarbonRouter />);
 });
