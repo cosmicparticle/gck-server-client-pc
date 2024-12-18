@@ -113,6 +113,7 @@ SaleOrderInputConstant.completeDtmplConfig = (dtmplConfig: DtmplConfig, dtmplDat
             if (SaleOrderInputConstant.addDtmpl_customer.key === field.mstrucId) {
                 let customerFieldId = TmplConfigAnalysis.getFieldId(dtmplConfig, SaleOrderInputConstant.addDtmpl_customer.key)
                 field.disabled = isRetail == null || isRetail === "是";
+                field.required = !field.disabled;
                 if (field.disabled && changedValues) {
                     // 将选择的内容清空
                     formInstance.setFieldValue(customerFieldId, null);
@@ -122,6 +123,7 @@ SaleOrderInputConstant.completeDtmplConfig = (dtmplConfig: DtmplConfig, dtmplDat
             if (SaleOrderInputConstant.addDtmpl_retail.key === field.mstrucId) {
                 let retailFieldId = TmplConfigAnalysis.getFieldId(dtmplConfig, SaleOrderInputConstant.addDtmpl_retail.key)
                 field.disabled = isRetail == null || isRetail === "否";
+                field.required = !field.disabled;
                 if (field.disabled && changedValues) {
                     // 将选择的内容清空
                     formInstance.setFieldValue(retailFieldId, null);
