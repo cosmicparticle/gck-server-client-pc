@@ -25,7 +25,7 @@ loadableReady(async () => {
   ProgramConfig.setAppDtmplConfigFunc(SaleOrderConstant.addDTmpl_supple.sourceId, SaleOrderConstant.completeDtmplConfig_supple);
   ProgramConfig.setAppDtmplConfigFunc(SaleOrderConstant.addDTmpl_retail.sourceId, SaleOrderConstant.completeDtmplConfig);
   ProgramConfig.setAppDtmplConfigFunc(FinaneRechargeConstant.addDTmpl.sourceId, FinaneRechargeConstant.completeDtmplConfig);
-  ProgramConfig.setAppDtmplConfigFunc(FinaneRechargeConstant.addDTmpl_retail.sourceId, FinaneRechargeConstant.completeDtmplConfig);
+  ProgramConfig.setAppDtmplConfigFunc(FinaneRechargeConstant.addDTmpl_retail.sourceId, FinaneRechargeConstant.completeDtmplRetailConfig);
   ProgramConfig.setAppDtmplConfigFunc(PurchaseOrderConstant.addDTmpl.sourceId, PurchaseOrderConstant.completeDtmplConfig);
   ProgramConfig.setAppDtmplConfigFunc(SanhuPurchaseOrderConstant.addDTmpl.sourceId, SanhuPurchaseOrderConstant.completeDtmplConfig);
   ProgramConfig.setAppDtmplConfigFunc(DrawBillConstant.addDTmpl.sourceId, DrawBillConstant.completeDtmplConfig);
