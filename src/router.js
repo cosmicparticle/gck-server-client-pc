@@ -98,6 +98,11 @@ export default class HydrocarbonRouter extends React.Component {
                       element={<ExcelImportRoute />}
                       exact
                     />
+                    <Route
+                        path=":sourceId/report-table"
+                        element={<LtmplRoute tableType={"report"} />}
+                        exact
+                    />
                     <Route path="/" element={home} exact />
                   </Routes>
                 </MainPage>
